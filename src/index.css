@@ -1,7 +1,9 @@
 body{
     border: 1px solid red;
     margin: 0;
-    font-family: 'Inter' sans-serif;
+    /* font-family: 'Lora', serif; */
+    font-family: 'Inconsolata', monospace;
+    /* font-family: 'Inter', sans-serif; */
 }
 
 * {
@@ -14,7 +16,7 @@ p,h1,h2,h3,h4 {
 
 .app-container {
     margin: 24px 24px 85px 24px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 .app-header{
     display: flex;
@@ -111,6 +113,7 @@ select {
     background-size: 15px;
     border: none;
     text-align: right;
+    font-family: inherit;
 }
 
 select:focus{
@@ -147,6 +150,7 @@ option:checked{
     font-size: 16px;
     font-weight: 700;
     color: #2D2D2D;
+    font-family: inherit;
 }
 
 .search-bar:focus{
