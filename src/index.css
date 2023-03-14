@@ -8,6 +8,10 @@ body{
     box-sizing: border-box;
 }
 
+p,h1,h2,h3,h4 {
+    margin: 0;
+}
+
 .app-container {
     margin: 24px 24px 85px 24px;
     border: 1px solid red;
@@ -106,7 +110,6 @@ select {
     background-position: calc(100% - 3%) center;
     background-size: 15px;
     border: none;
-    width: 120px;
 }
 
 select:focus{
@@ -123,7 +126,103 @@ option:checked{
     color:#A445ED;
 }
 
-.select-div{
-    width: 100px;
-    overflow: hidden;
+.search-bar-container{
+    margin: 24px 0;
 }
+
+.search-bar{
+    width: 100%;
+    padding: 16px 24px;
+    background-color: #F4F4F4;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    /* position: absolute; */
+}
+
+.search-bar:focus{
+    outline: none;
+    border: 1px solid #A445ED;
+    caret-color: #A445ED;
+}
+
+/* .search-icon {
+    position: relative;
+    top: 16px;
+    left: 24px;
+} */
+
+.keyword-container{
+    display: flex;
+    margin: 24px 0 32px;
+    align-items: center;
+}
+
+.word {
+    margin-right: auto;
+}
+
+.word > h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2D2D2D;
+}
+
+.word > p{
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #A445ED;
+}
+
+.play-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.noun {
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    color: #2D2D2D;
+    margin-block: 31px;
+}
+
+.meaning {
+    color: #757575;
+    margin-bottom: 16px;
+}
+
+.list {
+    color: #2D2D2D;
+    font-size: 15px;
+    padding-left: 14px;
+    list-style: none;
+}
+
+ul li::before {
+    content: "\2022";  
+    color: #A445ED; 
+    font-weight: bold; 
+    display: inline-block; 
+    width: 1em; 
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+
+.list > li {
+    padding-bottom: 13px;
+    line-height: 24px;
+}
+
+.synonym {
+    color: #757575;
+    margin-right: 24px;
+}
+
+.synonym-description {
+    font-weight: 700;
+    color: #A445ED;
+}
+
+
