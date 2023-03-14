@@ -3,6 +3,7 @@ import AppLogo from "./assets/images/logo.svg"
 import MoonIcon from "./assets/images/icon-moon.svg"
 import SearchIcon from "./assets/images/icon-search.svg"
 import PlayIcon from "./assets/images/icon-play.svg"
+import NewWindow from "./assets/images/icon-new-window.svg"
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
             <img src={PlayIcon} alt="play-icon" className="play-icon" />
           </div>
           <div className="noun-container">
+            <h4 className="noun">noun</h4>
             <p className="meaning">Meaning</p>
             <ul className="list">
               <li>A set of keys used to operate a typewriter, computer etc.</li>
@@ -51,6 +53,22 @@ function App() {
               <span className="synonym">Synonyms</span>
               <span className="synonym-description">electronic keyboard</span>
             </div>
+          </div>
+          <div className="verb-container">
+            <h4 className="verb">verb</h4>
+            <p className="meaning">Meaning</p>
+            <ul className="list">
+              <li>A set of keys used to operate a typewriter, computer etc.</li>
+            </ul>
+            <p className="word-example">“Keyboarding is the part of this job I hate the most.”</p>
+          </div>
+          <div className="source-container">
+            <p className="source">Source</p>
+            <a className="source-link" 
+            target="_blank" 
+            href="https://en.wiktionary.org/wiki/keyboard"
+            >https://en.wiktionary.org/wiki/keyboard</a>
+            <a href="https://en.wiktionary.org/wiki/keyboard" target="_blank"><img src={NewWindow} alt="" className="new-window" /></a>
           </div>
         </section>
       </main>
