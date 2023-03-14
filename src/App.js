@@ -1,37 +1,36 @@
 import React from "react"
-import AppLogo from "./assets/images/logo.svg"
-import MoonIcon from "./assets/images/icon-moon.svg"
-import SearchIcon from "./assets/images/icon-search.svg"
-import PlayIcon from "./assets/images/icon-play.svg"
-import NewWindow from "./assets/images/icon-new-window.svg"
+import appLogo from "./assets/images/logo.svg"
+import moonIcon from "./assets/images/icon-moon.svg"
+import searchIcon from "./assets/images/icon-search.svg"
+import playIcon from "./assets/images/icon-play.svg"
+import newWindow from "./assets/images/icon-new-window.svg"
 
 
 function App() {
   return (
     <div className="app-container">
       <header className="app-header">
-        <img src={AppLogo} alt="logo" className="logo" />
+        <img src={appLogo} alt="logo" className="logo" />
         <div className="app-font-slider">
           <div className="select-div">
-            <div className="select-div">
             <select>
-                <option defaultValue value="grapefruit">Sans Serif</option>
-                <option value="lime">Serif</option>
-                <option value="coconut">Mono</option>
-              </select>
-            </div>
+              <option defaultValue value="grapefruit">Sans Serif</option>
+              <option value="lime">Serif</option>
+              <option value="coconut">Mono</option>
+            </select>
           </div>
+          <hr className="hr"></hr>
           <label className="switch">
             <input type="checkbox" />
             <span className="slider round"></span>
           </label>
-          <img src={MoonIcon} alt="moon-icon" className="moon-icon" />
+          <img src={moonIcon} alt="moon-icon" className="moon-icon" />
         </div>
       </header>
       <main>
         <section className="search-bar-container">
-          <input type="text" className="search-bar" />
-          <img src={SearchIcon} alt="search-icon" className="search-icon" />
+          <input type="text" className="search-bar" placeholder="Enter Word" />
+          <img src={searchIcon} alt="search-icon" className="search-icon" />
         </section>
         <section>
           <div className="keyword-container">
@@ -39,7 +38,7 @@ function App() {
               <h1>Keyboard</h1>
               <p>/ˈkiːbɔːd/</p>
             </div>
-            <img src={PlayIcon} alt="play-icon" className="play-icon" />
+            <img src={playIcon} alt="play-icon" className="play-icon" />
           </div>
           <div className="noun-container">
             <h4 className="noun">noun</h4>
@@ -68,7 +67,9 @@ function App() {
             target="_blank" 
             href="https://en.wiktionary.org/wiki/keyboard"
             >https://en.wiktionary.org/wiki/keyboard</a>
-            <a href="https://en.wiktionary.org/wiki/keyboard" target="_blank"><img src={NewWindow} alt="" className="new-window" /></a>
+            <a href="https://en.wiktionary.org/wiki/keyboard" target="_blank">
+              <img src={newWindow} alt="" className="new-window" />
+            </a>
           </div>
         </section>
       </main>
