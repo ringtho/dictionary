@@ -120,7 +120,13 @@ select:focus{
 select option,
 select {
     font-weight: 700;
+    color: #2D2D2D;
     cursor: pointer;
+}
+
+select > option {
+    padding: 16px;
+    margin-right: 10px;
 }
 
 option:checked{
