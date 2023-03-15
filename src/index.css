@@ -11,24 +11,6 @@ body {
   box-sizing: border-box;
 }
 
-.dark-theme {
-  background-color: #050505;
-  color: #FFFFFF;
-}
-
-.search-bar-container .dark-search-bar {
-  background-color: #1f1f1f;
-  color: #FFFFFF;
-}
-
-.source-container .dark-source-link {
-  color: #FFFFFF;
-}
-
-.dark-moon-icon {
-  filter: invert(58%) sepia(96%) saturate(5889%) hue-rotate(255deg) brightness(94%) contrast(97%)
-}
-
 .light-theme {
   background-color: #FFFFFF;
   color: #2D2D2D;
@@ -216,6 +198,7 @@ option:checked{
 .play-icon {
     width: 48px;
     height: 48px;
+    cursor: pointer;
 }
 
 .noun, .verb {
@@ -330,6 +313,26 @@ option:checked{
 
 .mono {
   font-family: 'Inconsolata', monospace;
+}
+
+/* dark theme */
+
+.dark-theme {
+  background-color: #050505;
+  color: #FFFFFF;
+}
+
+.search-bar-container .dark-search-bar {
+  background-color: #1f1f1f;
+  color: #FFFFFF;
+}
+
+.source-container .dark-source-link {
+  color: #FFFFFF;
+}
+
+.dark-moon-icon {
+  filter: invert(58%) sepia(96%) saturate(5889%) hue-rotate(255deg) brightness(94%) contrast(97%)
 }
 
 
