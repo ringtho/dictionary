@@ -3,8 +3,6 @@ import searchIcon from "../assets/images/icon-search.svg"
 import playIcon from "../assets/images/icon-play.svg"
 import newWindow from "../assets/images/icon-new-window.svg"
 
-import Noun from "./Noun"
-
 export default function Search() {
     const [keyWord, setKeyWord] = useState("")
     const [formData, setFormData] = useState({search : "keyboard"})
@@ -26,10 +24,6 @@ export default function Search() {
     },[formData.search])
 
     console.log(wordDetails.meanings)
-
-    // const wordMeanings = wordDetails.meanings.map((meaning, idx)=>{
-    //     return (meaning.partOfSpeech === "noun" && <Noun key={idx} {...meaning} />)
-    // }) 
 
     return (
         <>
