@@ -1,5 +1,5 @@
-body{
-    border: 1px solid red;
+html, 
+body {
     margin: 0;
     /* font-family: 'Lora', serif; */
     font-family: 'Inconsolata', monospace;
@@ -17,7 +17,7 @@ p,h1,h2,h3,h4 {
 .app-container {
     margin: 24px 24px 85px 24px;
     max-width: 737px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 .app-header{
     display: flex;
@@ -47,15 +47,13 @@ p,h1,h2,h3,h4 {
     width: 40px;
     height: 20px;
 }
-  
-  /* Hide default HTML checkbox */
+
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-/* The slider */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -94,7 +92,6 @@ input:checked + .slider:before {
     transform: translateX(20px);
 }
 
-/* Rounded sliders */
 .slider.round {
     border-radius: 20px;
 }
@@ -300,6 +297,18 @@ option:checked{
     width: 1px;
     background-color: #e9e9e9;
     border: none;
+}
+
+.sans-serif {
+  font-family: 'Inter', sans-serif;
+}
+
+.serif {
+  font-family: 'Lora', serif;
+}
+
+.mono {
+  font-family: 'Inconsolata', monospace;
 }
 
 

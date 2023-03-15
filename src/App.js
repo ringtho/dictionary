@@ -14,9 +14,9 @@ function App() {
         <div className="app-font-slider">
           <div className="select-div">
             <select>
-              <option defaultValue value="grapefruit">Sans Serif</option>
-              <option value="lime">Serif</option>
-              <option value="coconut">Mono</option>
+              <option defaultValue value={`"Inter", sans-serif`} className="sans-serif">Sans Serif</option>
+              <option value={`"Lora", serif`} className="serif">Serif</option>
+              <option value={`'Inconsolata', monospace`} className="mono">Mono</option>
             </select>
           </div>
           <hr className="hr"></hr>
