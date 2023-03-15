@@ -3,7 +3,7 @@ body {
     margin: 0;
     /* font-family: 'Lora', serif; */
     font-family: 'Inconsolata', monospace;
-    color: #FFFFFF;
+    color: red;
     /* font-family: 'Inter', sans-serif; */
 }
 
@@ -13,6 +13,10 @@ body {
 
 .dark-theme {
   background-color: #050505;
+}
+
+.light-theme {
+  background-color: #FFFFFF;
 }
 
 .dark-color {
@@ -26,8 +30,8 @@ p,h1,h2,h3,h4 {
 .app-container {
     margin: 24px 24px 85px 24px;
     max-width: 737px;
-    /* border: 1px solid red; */
 }
+
 .app-header{
     display: flex;
 }

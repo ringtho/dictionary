@@ -4,15 +4,26 @@ import moonIcon from "../assets/images/icon-moon.svg"
 
 
 export default function Header() {
-    const [fontFamily, setFontFamily] = useState({font: ""})
+    const [theme, setTheme] = useState({font: "", darkMode: false})
 
     function handleOnChange(e) {
-        setFontFamily({font: e.target.value})
+        const {name, value, type, checked} = e.target
+        setTheme(prev => (
+            {...prev, 
+                [name]: type === "checkbox" ? checked : value
+            }
+        ))
     }
 
+    console.log(theme)
+
     useEffect(() => {
-        document.body.style.fontFamily = fontFamily.font
-    }, [fontFamily])
+        theme.darkMode ? 
+        document.body.className="dark-theme" 
+        : document.body.className= "light-theme"
+        
+        document.body.style.fontFamily = theme.font
+    }, [theme])
 
 
 
@@ -22,15 +33,33 @@ export default function Header() {
         <div className="app-font-slider">
             <form className="app-font-slider">
                 <div className="select-div">
-                    <select value={fontFamily.font} onChange={handleOnChange}>
-                    <option defaultValue value={`"Inter", sans-serif`} className="sans-serif">Sans Serif</option>
-                    <option value={`"Lora", serif`} className="serif">Serif</option>
-                    <option value={`'Inconsolata', monospace`} className="mono">Mono</option>
+                    <select value={theme.font} 
+                        name="font" 
+                        onChange={handleOnChange}
+                    >
+                        <option 
+                            defaultValue 
+                            value={`"Inter", sans-serif`} 
+                            className="sans-serif"
+                        >Sans Serif</option>
+                        <option 
+                            value={`"Lora", serif`} 
+                            className="serif"
+                        >Serif</option>
+                        <option 
+                            value={`'Inconsolata', monospace`} 
+                            className="mono"
+                        >Mono</option>
                     </select>
                 </div>
                 <hr className="hr"></hr>
                 <label className="switch">
-                    <input type="checkbox"  />
+                    <input 
+                        type="checkbox" 
+                        name="darkMode" 
+                        checked={theme.darkMode} 
+                        onChange={handleOnChange}  
+                    />
                     <span className="slider round"></span>
                 </label>
             </form>
