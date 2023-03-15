@@ -4,7 +4,16 @@ import moonIcon from "../assets/images/icon-moon.svg"
 
 
 export default function Header() {
-    const [theme, setTheme] = useState({font: "", darkMode: false})
+
+    const colorTheme = localStorage.getItem("darkMode") || true
+    const fontTheme = localStorage.getItem("font") || ""
+
+    console.log(colorTheme)
+
+    const [theme, setTheme] = useState({
+        font: fontTheme, 
+        darkMode: colorTheme
+    })
 
     function handleOnChange(e) {
         const {name, value, type, checked} = e.target
@@ -12,10 +21,14 @@ export default function Header() {
             {   ...prev, 
                 [name]: type === "checkbox" ? checked : value
             }
+            
         ))
+        
     }
 
     useEffect(() => {
+        localStorage.setItem("darkMode", theme.darkMode)
+        localStorage.setItem("font", theme.font)
         if (theme.darkMode){
             document.body.className="dark-theme"
             document.querySelector("#select").classList.add("dark-theme")

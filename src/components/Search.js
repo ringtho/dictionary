@@ -3,7 +3,7 @@ import searchIcon from "../assets/images/icon-search.svg"
 import playIcon from "../assets/images/icon-play.svg"
 import newWindow from "../assets/images/icon-new-window.svg"
 
-import Noun from "./Noun";
+import SpeechType from "./SpeechType";
 
 export default function Search() {
     const [keyWord, setKeyWord] = useState("")
@@ -25,13 +25,9 @@ export default function Search() {
             .then(data => setWordDetails(data[0]))
     },[formData.search])
 
-    const noun = wordDetails.meanings?.map((speech, idx) => {
-        return speech.partOfSpeech === "noun" && <Noun key={idx} {...speech} />
+    const partOfSpeech = wordDetails.meanings?.map((speech, idx) => {
+        return speech.partOfSpeech && <SpeechType key={idx} {...speech} />
     })
-
-    // console.log(noun)
-
-    console.log(wordDetails.meanings)
 
     return (
         <>
@@ -57,28 +53,10 @@ export default function Search() {
         </div>
         <img src={playIcon} alt="play-icon" className="play-icon" />
         </div>
-        {noun}
-        {/* <div className="noun-container">
-            <h4 className="noun">noun</h4>
-            <p className="meaning">Meaning</p>
-            <ul className="list">
-                <li>A set of keys used to operate a typewriter, computer etc.</li>
-            </ul>
-            <div>
-                <span className="synonym">Synonyms</span>
-                <span className="synonym-description">electronic keyboard</span>
-            </div>
-        </div> */}
-        <div className="verb-container">
-        <h4 className="verb">verb</h4>
-        <p className="meaning">Meaning</p>
-        <ul className="list">
-            <li>A set of keys used to operate a typewriter, computer etc.</li>
-        </ul>
-        <p className="word-example">“Keyboarding is the part of this job I hate the most.”</p>
-        </div>
+        {partOfSpeech}
         <div className="source-container">
         <p className="source">Source</p>
+        <hr className="hr"></hr>
         <a id="source-link" className="source-link" 
         target="_blank"
         rel="noreferrer" 

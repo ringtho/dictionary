@@ -202,7 +202,7 @@ option:checked{
     cursor: pointer;
 }
 
-.noun, .verb {
+.noun{
     font-size: 18px;
     font-weight: 700;
     font-style: italic;
@@ -210,8 +210,7 @@ option:checked{
     position: relative;
 }
 
-.noun::after,
-.verb::after {
+.noun::after{
     content: "";
     height: 1px;
     width: 85%;
@@ -249,6 +248,7 @@ option:checked{
 
 .synonym-container {
   display: flex;
+  margin-top: 24px;
 }
 
 .synonym {
@@ -268,7 +268,7 @@ option:checked{
 
 .word-example {
     color: #757575;
-    font-size: 15px; 
+    font-size: 15px;
 }
 
 .word-example,
@@ -276,12 +276,9 @@ option:checked{
     padding-left: 14px;
 }
 
-.verb-container {
-    padding-bottom: 32px;
-    border-bottom: 1px solid #e9e9e9;
-}
-
 .source-container {
+    border-top: 1px solid #E9E9E9;
+    margin-top: 32px;
     padding-top: 24px;
 }
 
@@ -418,6 +415,8 @@ option:checked{
 
   .source-container {
     display: flex;
+    margin-top: 40px;
+    padding-top: 20px;
   }
 
   .source-link {
