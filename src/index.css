@@ -3,7 +3,7 @@ body {
     margin: 0;
     /* font-family: 'Lora', serif; */
     font-family: 'Inconsolata', monospace;
-    color: red;
+    
     /* font-family: 'Inter', sans-serif; */
 }
 
@@ -13,14 +13,25 @@ body {
 
 .dark-theme {
   background-color: #050505;
+  color: #FFFFFF;
+}
+
+.search-bar-container .dark-search-bar {
+  background-color: #1f1f1f;
+  color: #FFFFFF;
+}
+
+.source-container .dark-source-link {
+  color: #FFFFFF;
+}
+
+.dark-moon-icon {
+  filter: invert(58%) sepia(96%) saturate(5889%) hue-rotate(255deg) brightness(94%) contrast(97%)
 }
 
 .light-theme {
   background-color: #FFFFFF;
-}
-
-.dark-color {
-  color: #FFFFFF;
+  color: #2D2D2D;
 }
 
 p,h1,h2,h3,h4 {
@@ -193,7 +204,6 @@ option:checked{
 .word > h1 {
     font-size: 32px;
     font-weight: 700;
-    color: #2D2D2D;
 }
 
 .word > p{
@@ -212,7 +222,6 @@ option:checked{
     font-size: 18px;
     font-weight: 700;
     font-style: italic;
-    color: #2D2D2D;
     margin-block: 32px;
     position: relative;
 }
@@ -236,7 +245,6 @@ option:checked{
 }
 
 .list {
-    color: #2D2D2D;
     font-size: 15px;
     list-style: none;
 }

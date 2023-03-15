@@ -9,19 +9,27 @@ export default function Header() {
     function handleOnChange(e) {
         const {name, value, type, checked} = e.target
         setTheme(prev => (
-            {...prev, 
+            {   ...prev, 
                 [name]: type === "checkbox" ? checked : value
             }
         ))
     }
 
-    console.log(theme)
-
     useEffect(() => {
-        theme.darkMode ? 
-        document.body.className="dark-theme" 
-        : document.body.className= "light-theme"
-        
+        if (theme.darkMode){
+            document.body.className="dark-theme"
+            document.querySelector("#select").classList.add("dark-theme")
+            document.querySelector("#search-bar").classList.add("dark-search-bar")
+            document.querySelector("#source-link").classList.add("dark-source-link")
+            document.querySelector(".moon-icon").classList.add("dark-moon-icon")
+        } else {
+            document.body.className= "light-theme"
+            document.querySelector("#select").classList.remove("dark-theme")
+            document.querySelector("#search-bar").classList.remove("dark-search-bar")
+            document.querySelector("#source-link").classList.remove("dark-source-link")
+            document.querySelector(".moon-icon").classList.remove("dark-moon-icon")
+        }
+
         document.body.style.fontFamily = theme.font
     }, [theme])
 
@@ -33,7 +41,7 @@ export default function Header() {
         <div className="app-font-slider">
             <form className="app-font-slider">
                 <div className="select-div">
-                    <select value={theme.font} 
+                    <select id="select" value={theme.font} 
                         name="font" 
                         onChange={handleOnChange}
                     >

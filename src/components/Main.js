@@ -36,7 +36,7 @@ export default function Main() {
           </div>
           <div className="source-container">
             <p className="source">Source</p>
-            <a className="source-link" 
+            <a id="source-link" className="source-link" 
             target="_blank" 
             href="https://en.wiktionary.org/wiki/keyboard"
             >https://en.wiktionary.org/wiki/keyboard</a>
