@@ -16,7 +16,8 @@ p,h1,h2,h3,h4 {
 
 .app-container {
     margin: 24px 24px 85px 24px;
-    /* border: 1px solid red; */
+    max-width: 737px;
+    border: 1px solid red;
 }
 .app-header{
     display: flex;
@@ -384,4 +385,10 @@ option:checked{
     font-size: 18px;
   }
 
+}
+
+@media (min-width: 817px) {
+  .app-container {
+    margin: 60px auto 120px auto;
+  }
 }
