@@ -9,6 +9,7 @@ export default function Search() {
     const [keyWord, setKeyWord] = useState("")
     const [formData, setFormData] = useState({search : "keyboard"})
     const [wordDetails, setWordDetails] = useState([])
+    const [status, setStatus] = useState("idle")
 
     function handleOnChange(e){
         setKeyWord(e.target.value)
@@ -20,10 +21,19 @@ export default function Search() {
     }
 
     useEffect(() => {
+        setStatus("submitting")
         fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${formData.search}`)
             .then(res => res.json())
-            .then(data => setWordDetails(data[0]))
+            .then(data => {
+                setWordDetails(data[0])
+            })
+            .finally(()=>{
+                setStatus("idle")
+            })
+
     },[formData.search])
+
+    console.log(status)
 
     const partOfSpeech = wordDetails.meanings?.map((speech, idx) => {
         return speech.partOfSpeech && <SpeechType key={idx} {...speech} />
