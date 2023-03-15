@@ -132,6 +132,7 @@ select {
     color: #2D2D2D;
     cursor: pointer;
     font-size: 14px;
+    background-color: inherit;
 }
 
 select > option {
