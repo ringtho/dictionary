@@ -53,7 +53,7 @@ export default function Search() {
             <h4 className="noun">noun</h4>
             <p className="meaning">Meaning</p>
             <ul className="list">
-                {/* {wordMeanings} */}
+                <li>A set of keys used to operate a typewriter, computer etc.</li>
             </ul>
             <div>
                 <span className="synonym">Synonyms</span>
@@ -71,10 +71,11 @@ export default function Search() {
         <div className="source-container">
         <p className="source">Source</p>
         <a id="source-link" className="source-link" 
-        target="_blank" 
+        target="_blank"
+        rel="noreferrer" 
         href="https://en.wiktionary.org/wiki/keyboard"
         >https://en.wiktionary.org/wiki/{wordDetails.word}</a>
-        <a href="https://en.wiktionary.org/wiki/keyboard" target="_blank">
+        <a href="https://en.wiktionary.org/wiki/keyboard" target="_blank" rel="noreferrer">
             <img src={newWindow} alt="" className="new-window" />
         </a>
         </div>
