@@ -39,38 +39,36 @@ export default function Header() {
         <header className="app-header">
         <img src={appLogo} alt="logo" className="logo" />
         <div className="app-font-slider">
-            <form className="app-font-slider">
-                <div className="select-div">
-                    <select id="select" value={theme.font} 
-                        name="font" 
-                        onChange={handleOnChange}
-                    >
-                        <option 
-                            defaultValue 
-                            value={`"Inter", sans-serif`} 
-                            className="sans-serif"
-                        >Sans Serif</option>
-                        <option 
-                            value={`"Lora", serif`} 
-                            className="serif"
-                        >Serif</option>
-                        <option 
-                            value={`'Inconsolata', monospace`} 
-                            className="mono"
-                        >Mono</option>
-                    </select>
-                </div>
-                <hr className="hr"></hr>
-                <label className="switch">
-                    <input 
-                        type="checkbox" 
-                        name="darkMode" 
-                        checked={theme.darkMode} 
-                        onChange={handleOnChange}  
-                    />
-                    <span className="slider round"></span>
-                </label>
-            </form>
+            <div className="select-div">
+                <select id="select" value={theme.font} 
+                    name="font" 
+                    onChange={handleOnChange}
+                >
+                    <option 
+                        defaultValue 
+                        value={`"Inter", sans-serif`} 
+                        className="sans-serif"
+                    >Sans Serif</option>
+                    <option 
+                        value={`"Lora", serif`} 
+                        className="serif"
+                    >Serif</option>
+                    <option 
+                        value={`'Inconsolata', monospace`} 
+                        className="mono"
+                    >Mono</option>
+                </select>
+            </div>
+            <hr className="hr"></hr>
+            <label className="switch">
+                <input 
+                    type="checkbox" 
+                    name="darkMode" 
+                    checked={theme.darkMode} 
+                    onChange={handleOnChange}  
+                />
+                <span className="slider round"></span>
+            </label>
           <img src={moonIcon} alt="moon-icon" className="moon-icon" />
         </div>
       </header>
