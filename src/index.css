@@ -247,6 +247,10 @@ option:checked{
     line-height: 24px;
 }
 
+.synonym-container {
+  display: flex;
+}
+
 .synonym {
     color: #757575;
     margin-right: 24px;
@@ -255,6 +259,11 @@ option:checked{
 .synonym-description {
     font-weight: 700;
     color: #A445ED;
+}
+
+.synonym,
+.synonym-description {
+  line-height: 24px;
 }
 
 .word-example {

@@ -3,6 +3,8 @@ import searchIcon from "../assets/images/icon-search.svg"
 import playIcon from "../assets/images/icon-play.svg"
 import newWindow from "../assets/images/icon-new-window.svg"
 
+import Noun from "./Noun";
+
 export default function Search() {
     const [keyWord, setKeyWord] = useState("")
     const [formData, setFormData] = useState({search : "keyboard"})
@@ -22,6 +24,12 @@ export default function Search() {
             .then(res => res.json())
             .then(data => setWordDetails(data[0]))
     },[formData.search])
+
+    const noun = wordDetails.meanings?.map((speech, idx) => {
+        return speech.partOfSpeech === "noun" && <Noun key={idx} {...speech} />
+    })
+
+    // console.log(noun)
 
     console.log(wordDetails.meanings)
 
@@ -49,7 +57,8 @@ export default function Search() {
         </div>
         <img src={playIcon} alt="play-icon" className="play-icon" />
         </div>
-        <div className="noun-container">
+        {noun}
+        {/* <div className="noun-container">
             <h4 className="noun">noun</h4>
             <p className="meaning">Meaning</p>
             <ul className="list">
@@ -59,7 +68,7 @@ export default function Search() {
                 <span className="synonym">Synonyms</span>
                 <span className="synonym-description">electronic keyboard</span>
             </div>
-        </div>
+        </div> */}
         <div className="verb-container">
         <h4 className="verb">verb</h4>
         <p className="meaning">Meaning</p>
