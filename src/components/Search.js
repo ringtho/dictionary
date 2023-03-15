@@ -73,7 +73,7 @@ export default function Search() {
         <a id="source-link" className="source-link" 
         target="_blank"
         rel="noreferrer" 
-        href="https://en.wiktionary.org/wiki/keyboard"
+        href={`https://en.wiktionary.org/wiki/${wordDetails.word}`}
         >https://en.wiktionary.org/wiki/{wordDetails.word}</a>
         <a href={`https://en.wiktionary.org/wiki/${wordDetails.word}`} target="_blank" rel="noreferrer">
             <img src={newWindow} alt="" className="new-window" />
