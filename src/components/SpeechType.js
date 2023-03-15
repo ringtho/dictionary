@@ -9,7 +9,10 @@ export default function SpeechType(props){
         return (
             <>
             <li key={idx}>{definition.definition}</li>
-            {definition.example && <p className="word-example">"{definition.example}"</p>}
+            {
+                definition.example && 
+                <p className="word-example">"{definition.example}"</p>
+            }
             </>
         )
     })
@@ -21,7 +24,6 @@ export default function SpeechType(props){
             <ul className="list">
             {defintionEls}
             </ul>
-            {/* <p className="word-example">{example}</p> */}
             {
                 synonyms.length > 0 && <div className="synonym-container">
                     <p className="synonym">Synonyms</p>

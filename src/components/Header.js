@@ -5,15 +5,15 @@ import moonIcon from "../assets/images/icon-moon.svg"
 
 export default function Header() {
 
-    const colorTheme = localStorage.getItem("darkMode") || true
+    const colorTheme = JSON.parse(localStorage.getItem("darkMode")) || false
     const fontTheme = localStorage.getItem("font") || ""
-
-    console.log(colorTheme)
 
     const [theme, setTheme] = useState({
         font: fontTheme, 
         darkMode: colorTheme
     })
+
+    console.log(theme)
 
     function handleOnChange(e) {
         const {name, value, type, checked} = e.target
@@ -27,6 +27,7 @@ export default function Header() {
     }
 
     useEffect(() => {
+        console.log(theme)
         localStorage.setItem("darkMode", theme.darkMode)
         localStorage.setItem("font", theme.font)
         if (theme.darkMode){
@@ -45,8 +46,6 @@ export default function Header() {
 
         document.body.style.fontFamily = theme.font
     }, [theme])
-
-
 
     return (
         <header className="app-header">

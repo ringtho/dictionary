@@ -269,9 +269,9 @@ option:checked{
 .word-example {
     color: #757575;
     font-size: 15px;
+    margin-bottom: 13px;
 }
 
-.word-example,
 .list {
     padding-left: 14px;
 }
@@ -404,7 +404,7 @@ option:checked{
   }
 
   .word-example {
-    padding-left: 35px;
+    padding-left: 22px;
   }
 
   .synonym,
