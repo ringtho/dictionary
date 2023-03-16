@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import searchIcon from "../assets/images/icon-search.svg"
 import playIcon from "../assets/images/icon-play.svg"
+import playIconHover from "../assets/images/icon-play-hover.svg"
+
 import newWindow from "../assets/images/icon-new-window.svg"
 
 import SpeechType from "./SpeechType";
@@ -84,7 +86,11 @@ export default function Search() {
                     <h1>{wordDetails.word}</h1>
                     <p>{wordDetails.phonetic}</p>
                 </div>
-                <img src={playIcon} alt="play-icon" className="play-icon" onClick={play} />
+                <div className="img-container">
+                    <img src={playIcon} alt="play-icon" className="play-icon" onClick={play} />
+                    <img src={playIconHover} alt="play-icon" className="play-icon-hover" onClick={play} />
+                </div>
+                
                 <audio id="audio" src={audioSrc}></audio>
             </div>
             {partOfSpeech}

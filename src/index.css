@@ -180,10 +180,6 @@ option:checked{
   cursor: not-allowed;
 }
 
-.search-bar:required {
-  
-}
-
 .keyword-container{
     display: flex;
     align-items: center;
@@ -205,10 +201,31 @@ option:checked{
     color: #A445ED;
 }
 
-.play-icon {
+.img-container {
+  position: relative;
+}
+
+.img-container img:last-child {
+  display: none; 
+}
+
+.img-container:hover img:last-child {
+  display: block;    
+}
+
+.img-container:hover img:first-child {
+  display: none;  
+}
+
+.play-icon, 
+.play-icon-hover {
     width: 48px;
     height: 48px;
     cursor: pointer;
+}
+
+.play-icon:hover {
+  background: url(./assets/images/icon-play-hover.svg);
 }
 
 .noun{
@@ -228,7 +245,6 @@ option:checked{
     position: absolute;
     top: 50%;
     right: 0;
-
 }
 
 .meaning {
@@ -412,7 +428,8 @@ option:checked{
     margin-top: 11px;
   }
 
-  .play-icon {
+  .play-icon,
+  .play-icon-hover {
     width: 75px;
     height: 75px;
   }
