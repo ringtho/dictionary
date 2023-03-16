@@ -9,7 +9,7 @@ import SpeechType from "./SpeechType";
 import Error from "./Error";
 import getWord from "../api";
 
-export default function Search() {
+export default function Main() {
     const [keyWord, setKeyWord] = useState("")
     const [formData, setFormData] = useState({search : "keyboard"})
     const [wordDetails, setWordDetails] = useState([])
