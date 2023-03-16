@@ -23,6 +23,11 @@ export default function Search() {
         setFormData({search : keyWord})
     }
 
+    function play() {
+        let audio = document.getElementById("audio");
+        audio.play();
+    }
+
     useEffect(() => {
         setStatus("submitting")
 
@@ -41,14 +46,14 @@ export default function Search() {
 
     },[formData.search])
 
-    console.log(error)
-
     const partOfSpeech = wordDetails.meanings?.map((speech, idx) => {
         return speech.partOfSpeech && <SpeechType key={idx} {...speech} />
     })
 
-    console.log(status)
-
+    const audioArr = wordDetails.phonetics?.filter((audio)=>{
+        return audio.audio !== ''
+    }) || null
+ 
     return (
         <>
         <section className="search-bar-container">
@@ -72,7 +77,8 @@ export default function Search() {
             <h1>{wordDetails.word}</h1>
             <p>{wordDetails.phonetic}</p>
         </div>
-        <img src={playIcon} alt="play-icon" className="play-icon" />
+        <img src={playIcon} alt="play-icon" className="play-icon" onClick={play} />
+        <audio id="audio" src={audioArr ? audioArr[0].audio : ''}></audio>
         </div>
         {partOfSpeech}
         <div className="source-container">
