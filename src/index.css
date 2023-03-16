@@ -167,6 +167,11 @@ option:checked{
     caret-color: #A445ED;
 }
 
+.search-bar:user-invalid {
+  outline: none;
+  border: 1px solid #FF5252;
+}
+
 .search-icon {
     height: 16px;
     width: 16px;
@@ -201,10 +206,6 @@ option:checked{
     color: #A445ED;
 }
 
-.img-container {
-  position: relative;
-}
-
 .img-container img:last-child {
   display: none; 
 }
@@ -222,10 +223,6 @@ option:checked{
     width: 48px;
     height: 48px;
     cursor: pointer;
-}
-
-.play-icon:hover {
-  background: url(./assets/images/icon-play-hover.svg);
 }
 
 .noun{
