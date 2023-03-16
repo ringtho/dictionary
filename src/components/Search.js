@@ -47,6 +47,8 @@ export default function Search() {
         return speech.partOfSpeech && <SpeechType key={idx} {...speech} />
     })
 
+    console.log(status)
+
     return (
         <>
         <section className="search-bar-container">
@@ -63,7 +65,7 @@ export default function Search() {
         </form>
         </section>
         
-        {!error ?
+        {error ?  <Error {...error} /> :
         <section>
         <div className="keyword-container">
         <div className="word">
@@ -86,7 +88,6 @@ export default function Search() {
         </a>
         </div>
         </section>
-        : <Error {...error} />
         }
         </>
     )
