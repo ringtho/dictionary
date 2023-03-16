@@ -55,8 +55,6 @@ export default function Search() {
 
     const audioSrc = audioArr !== null && audioArr.length > 0 
     ? audioArr[0].audio : ''
-
-    console.log(status==="submitting")
  
     return (
         <>
@@ -70,7 +68,10 @@ export default function Search() {
             value={keyWord}
             onChange={handleOnChange}
             required
-            disabled={status==="submitting"} 
+            disabled={status==="submitting"}
+            onInvalid={(e) => { 
+                e.target.setCustomValidity("Whoops, can't be empty...") }}
+            onInput={F => F.target.setCustomValidity('')}
             />
           <img src={searchIcon} alt="search-icon" className="search-icon" />
         </form>

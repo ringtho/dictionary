@@ -180,6 +180,10 @@ option:checked{
   cursor: not-allowed;
 }
 
+.search-bar:required {
+  
+}
+
 .keyword-container{
     display: flex;
     align-items: center;
