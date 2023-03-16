@@ -4,12 +4,15 @@ import playIcon from "../assets/images/icon-play.svg"
 import newWindow from "../assets/images/icon-new-window.svg"
 
 import SpeechType from "./SpeechType";
+import Error from "./Error";
+import getWord from "../api";
 
 export default function Search() {
     const [keyWord, setKeyWord] = useState("")
     const [formData, setFormData] = useState({search : "keyboard"})
     const [wordDetails, setWordDetails] = useState([])
     const [status, setStatus] = useState("idle")
+    const [error, setError] = useState(null)
 
     function handleOnChange(e){
         setKeyWord(e.target.value)
@@ -22,18 +25,23 @@ export default function Search() {
 
     useEffect(() => {
         setStatus("submitting")
-        fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${formData.search}`)
-            .then(res => res.json())
-            .then(data => {
+
+        async function getData(){
+            try {
+                const data = await getWord(formData.search)
+                console.log(data)
                 setWordDetails(data[0])
-            })
-            .finally(()=>{
+            } catch(err){
+                setError(err)
+            } finally {
                 setStatus("idle")
-            })
+            }
+        } 
+        getData()
 
     },[formData.search])
 
-    console.log(status)
+    console.log(error)
 
     const partOfSpeech = wordDetails.meanings?.map((speech, idx) => {
         return speech.partOfSpeech && <SpeechType key={idx} {...speech} />
@@ -54,7 +62,8 @@ export default function Search() {
           <img src={searchIcon} alt="search-icon" className="search-icon" />
         </form>
         </section>
-
+        
+        {!error ?
         <section>
         <div className="keyword-container">
         <div className="word">
@@ -77,6 +86,8 @@ export default function Search() {
         </a>
         </div>
         </section>
+        : <Error {...error} />
+        }
         </>
     )
 }

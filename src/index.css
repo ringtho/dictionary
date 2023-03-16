@@ -342,6 +342,30 @@ option:checked{
   filter: invert(58%) sepia(96%) saturate(5889%) hue-rotate(255deg) brightness(94%) contrast(97%)
 }
 
+.error-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 132px;
+}
+
+.error-emoji {
+  font-size: 64px;
+  margin: 0;
+}
+
+.error-title {
+  margin: 44px 0 24px;
+  font-size: 20px;
+
+}
+
+.error-description {
+  line-height: 24px;
+  font-size: 18px;
+  color: #757575;
+
+}
+
 
 @media (min-width: 768px){
   .app-container {
