@@ -45,6 +45,8 @@ export default function Search() {
 
     },[formData.search])
 
+    console.log(status)
+
     const partOfSpeech = wordDetails.meanings?.map((speech, idx) => {
         return speech.partOfSpeech && <SpeechType key={idx} {...speech} />
     })
