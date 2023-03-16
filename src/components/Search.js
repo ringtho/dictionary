@@ -34,7 +34,6 @@ export default function Search() {
         async function getData(){
             try {
                 const data = await getWord(formData.search)
-                console.log(data)
                 setWordDetails(data[0])
             } catch(err){
                 setError(err)
@@ -53,6 +52,9 @@ export default function Search() {
     const audioArr = wordDetails.phonetics?.filter((audio)=>{
         return audio.audio !== ''
     }) || null
+
+    const audioSrc = audioArr !== null && audioArr.length > 0 
+    ? audioArr[0].audio : ''
  
     return (
         <>
@@ -72,27 +74,26 @@ export default function Search() {
         
         {error ?  <Error {...error} /> :
         <section>
-        <div className="keyword-container">
-        <div className="word">
-            <h1>{wordDetails.word}</h1>
-            <p>{wordDetails.phonetic}</p>
-        </div>
-        <img src={playIcon} alt="play-icon" className="play-icon" onClick={play} />
-        <audio id="audio" src={audioArr ? audioArr[0].audio : ''}></audio>
-        </div>
-        {partOfSpeech}
-        <div className="source-container">
-        <p className="source">Source</p>
-        <hr className="hr"></hr>
-        <a id="source-link" className="source-link" 
-        target="_blank"
-        rel="noreferrer" 
-        href={`https://en.wiktionary.org/wiki/${wordDetails.word}`}
-        >https://en.wiktionary.org/wiki/{wordDetails.word}</a>
-        <a href={`https://en.wiktionary.org/wiki/${wordDetails.word}`} target="_blank" rel="noreferrer">
-            <img src={newWindow} alt="" className="new-window" />
-        </a>
-        </div>
+            <div className="keyword-container">
+                <div className="word">
+                    <h1>{wordDetails.word}</h1>
+                    <p>{wordDetails.phonetic}</p>
+                </div>
+                <img src={playIcon} alt="play-icon" className="play-icon" onClick={play} />
+                <audio id="audio" src={audioSrc}></audio>
+            </div>
+            {partOfSpeech}
+            <div className="source-container">
+                <p className="source">Source</p>
+                <a id="source-link" className="source-link" 
+                    target="_blank"
+                    rel="noreferrer" 
+                    href={`https://en.wiktionary.org/wiki/${wordDetails.word}`}
+                    >https://en.wiktionary.org/wiki/{wordDetails.word}</a>
+                <a href={`https://en.wiktionary.org/wiki/${wordDetails.word}`} target="_blank" rel="noreferrer">
+                    <img src={newWindow} alt="" className="new-window" />
+                </a>
+            </div>
         </section>
         }
         </>
