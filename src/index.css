@@ -175,6 +175,11 @@ option:checked{
     right: 24px;
 }
 
+.search-bar:disabled {
+  opacity: 50%;
+  cursor: not-allowed;
+}
+
 .keyword-container{
     display: flex;
     align-items: center;
@@ -322,6 +327,8 @@ option:checked{
   font-family: 'Inconsolata', monospace;
 }
 
+
+
 /* dark theme */
 
 .dark-theme {
@@ -341,6 +348,8 @@ option:checked{
 .dark-moon-icon {
   filter: invert(58%) sepia(96%) saturate(5889%) hue-rotate(255deg) brightness(94%) contrast(97%)
 }
+
+/* Error */
 
 .error-container {
   width: 100%;

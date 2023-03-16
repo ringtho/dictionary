@@ -45,8 +45,6 @@ export default function Search() {
 
     },[formData.search])
 
-    console.log(status)
-
     const partOfSpeech = wordDetails.meanings?.map((speech, idx) => {
         return speech.partOfSpeech && <SpeechType key={idx} {...speech} />
     })
@@ -57,6 +55,8 @@ export default function Search() {
 
     const audioSrc = audioArr !== null && audioArr.length > 0 
     ? audioArr[0].audio : ''
+
+    console.log(status==="submitting")
  
     return (
         <>
@@ -68,7 +68,9 @@ export default function Search() {
             placeholder="Search for any word..."
             name="keyWord"
             value={keyWord}
-            onChange={handleOnChange} 
+            onChange={handleOnChange}
+            required
+            disabled={status==="submitting"} 
             />
           <img src={searchIcon} alt="search-icon" className="search-icon" />
         </form>
