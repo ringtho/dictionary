@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
-import searchIcon from "../assets/images/icon-search.svg"
+import React, { useState, useEffect } from "react"
+
 import playIcon from "../assets/images/icon-play.svg"
 import playIconHover from "../assets/images/icon-play-hover.svg"
 
 import newWindow from "../assets/images/icon-new-window.svg"
 
-import SpeechType from "./SpeechType";
-import Error from "./Error";
-import getWord from "../api";
+import SpeechType from "./SpeechType"
+import SearchBar from "./SearchBar"
+import Error from "./Error"
+import getWord from "../api"
 
 export default function Main() {
     const [keyWord, setKeyWord] = useState("")
@@ -60,25 +61,15 @@ export default function Main() {
  
     return (
         <>
-        <section className="search-bar-container">
-        <form onSubmit={handleSubmit}>
-          <input type="text" 
-            id="search-bar" 
-            className="search-bar" 
-            placeholder="Search for any word..."
-            name="keyWord"
-            value={keyWord}
-            onChange={handleOnChange}
-            required
-            disabled={status==="submitting"}
-            onInvalid={(e) => { 
-                e.target.setCustomValidity("Whoops, can't be empty...") }}
-            onInput={F => F.target.setCustomValidity('')}
-            />
-          <img src={searchIcon} alt="search-icon" className="search-icon" />
-        </form>
-        </section>
-        
+       
+        <SearchBar 
+            handleSubmit={handleSubmit} 
+            handleOnChange={handleOnChange} 
+            keyWord={keyWord} 
+            status={status}  
+        />
+
+
         {error ?  <Error {...error} /> :
         <section>
             <div className="keyword-container">
