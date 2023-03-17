@@ -3,7 +3,6 @@ import searchIcon from "../assets/images/icon-search.svg"
 
 
 export default function SearchBar(props){
-    console.log(props)
     const {handleSubmit, handleOnChange, keyWord, status} = props
     return (
         <section className="search-bar-container">
