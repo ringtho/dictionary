@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react"
-
-import playIcon from "../assets/images/icon-play.svg"
-import playIconHover from "../assets/images/icon-play-hover.svg"
-
-import newWindow from "../assets/images/icon-new-window.svg"
-
-import SpeechType from "./SpeechType"
 import SearchBar from "./SearchBar"
+import Content from "./Content"
 import Error from "./Error"
 import getWord from "../api"
+
+import SpeechType from "./SpeechType"
+import playIcon from "../assets/images/icon-play.svg"
+import playIconHover from "../assets/images/icon-play-hover.svg"
+import newWindow from "../assets/images/icon-new-window.svg"
 
 export default function Main() {
     const [keyWord, setKeyWord] = useState("")
@@ -24,11 +23,6 @@ export default function Main() {
     function handleSubmit(e){
         e.preventDefault()
         setFormData({search : keyWord})
-    }
-
-    function play() {
-        let audio = document.getElementById("audio");
-        audio.play();
     }
 
     useEffect(() => {
@@ -48,6 +42,12 @@ export default function Main() {
 
     },[formData.search])
 
+    function play() {
+        let audio = document.getElementById("audio");
+        audio.play();
+    }
+
+
     const partOfSpeech = wordDetails.meanings?.map((speech, idx) => {
         return speech.partOfSpeech && <SpeechType key={idx} {...speech} />
     })
@@ -58,6 +58,8 @@ export default function Main() {
 
     const audioSrc = audioArr !== null && audioArr.length > 0 
     ? audioArr[0].audio : ''
+
+    console.log(wordDetails)
  
     return (
         <>
@@ -68,7 +70,10 @@ export default function Main() {
                 status={status}  
             />
 
-            {error ?  <Error {...error} /> :
+            { error ?  <Error {...error} /> : 
+
+            
+
             <section>
                 <div className="keyword-container">
                     <div className="word">
