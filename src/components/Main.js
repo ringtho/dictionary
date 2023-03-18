@@ -72,8 +72,6 @@ export default function Main() {
 
             { error ?  <Error {...error} /> : 
 
-            
-
             <section>
                 <div className="keyword-container">
                     <div className="word">
