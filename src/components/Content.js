@@ -6,7 +6,7 @@ import newWindow from "../assets/images/icon-new-window.svg"
 
 
 export default function Content(props){
-    const {wordDetails} = props
+    const {wordDetails, status} = props
 
     function play() {
         let audio = document.getElementById("audio");
@@ -23,6 +23,10 @@ export default function Content(props){
 
     const audioSrc = audioArr !== null && audioArr.length > 0 
     ? audioArr[0].audio : ''
+
+    if (status === "submitting"){
+        return <h2>Loading...</h2>
+    }
 
     return (
         

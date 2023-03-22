@@ -288,6 +288,10 @@ option:checked{
   line-height: 24px;
 }
 
+.synonym-description:hover {
+  text-decoration: underline;
+}
+
 .word-example {
     color: #757575;
     font-size: 15px;

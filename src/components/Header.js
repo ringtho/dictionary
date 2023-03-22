@@ -40,6 +40,17 @@ export default function Header() {
         }
 
         document.body.style.fontFamily = theme.font
+
+        return ()=>{
+
+            document.body.className= "light-theme"
+            document.querySelector("#select").classList.remove("dark-theme")
+            document.querySelector("#search-bar").classList.remove("dark-search-bar")
+            document.querySelector("#source-link").classList.remove("dark-source-link")
+            document.querySelector(".moon-icon").classList.remove("dark-moon-icon")
+
+        }
+
     }, [theme])
 
     return (
