@@ -22,6 +22,8 @@ export default function Main() {
 
     useEffect(() => {
         setStatus("submitting")
+        setError(null)
+        setWordDetails({search : ""})
 
         async function getData(){
             try {
@@ -37,6 +39,8 @@ export default function Main() {
 
     },[formData.search])
 
+    console.log(wordDetails)
+
     return (
         <>
             <SearchBar 
@@ -46,8 +50,10 @@ export default function Main() {
                 status={status}  
             />
 
-            { error ?  <Error {...error} /> : 
-            <Content wordDetails={wordDetails} />
+            { 
+                !error ? <Content status={status} wordDetails={wordDetails} /> : 
+                <Error {...error} />
+                
             }
         </>
     )

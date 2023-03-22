@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 
 export default function SpeechType(props){
@@ -7,13 +7,13 @@ export default function SpeechType(props){
     const defintionEls = definitions.map(
         (definition, idx) => {
         return (
-            <>
-            <li key={idx}>{definition.definition}</li>
+            <React.Fragment key={idx}>
+            <li>{definition.definition}</li>
             {
                 definition.example && 
                 <p className="word-example">"{definition.example}"</p>
             }
-            </>
+            </React.Fragment>
         )
     })
 

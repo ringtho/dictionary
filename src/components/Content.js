@@ -6,7 +6,6 @@ import newWindow from "../assets/images/icon-new-window.svg"
 
 
 export default function Content(props){
-    console.log(props)
     const {wordDetails} = props
 
     function play() {
@@ -26,6 +25,7 @@ export default function Content(props){
     ? audioArr[0].audio : ''
 
     return (
+        
         <section>
             <div className="keyword-container">
                 <div className="word">
