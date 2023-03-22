@@ -6,7 +6,7 @@ import newWindow from "../assets/images/icon-new-window.svg"
 
 
 export default function Content(props){
-    const {wordDetails, status} = props
+    const {wordDetails, status, theme } = props
 
     function play() {
         let audio = document.getElementById("audio");
@@ -46,7 +46,7 @@ export default function Content(props){
             {partOfSpeech}
             <div className="source-container">
                 <p className="source">Source</p>
-                <a id="source-link" className="source-link" 
+                <a id="source-link" className={`source-link ${theme.darkMode? "dark-source-link" : ""}`} 
                     target="_blank"
                     rel="noreferrer" 
                     href={`https://en.wiktionary.org/wiki/${wordDetails.word}`}

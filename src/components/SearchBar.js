@@ -3,13 +3,14 @@ import searchIcon from "../assets/images/icon-search.svg"
 
 
 export default function SearchBar(props){
-    const {handleSubmit, handleOnChange, keyWord, status} = props
+    const {handleSubmit, handleOnChange, keyWord, status, theme} = props
+
     return (
         <section className="search-bar-container">
             <form onSubmit={handleSubmit}>
             <input type="text" 
                 id="search-bar" 
-                className="search-bar" 
+                className={`search-bar ${theme.darkMode ? "dark-search-bar": ""}`} 
                 placeholder="Search for any word..."
                 name="keyWord"
                 value={keyWord}

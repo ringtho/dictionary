@@ -4,7 +4,7 @@ import Content from "./Content"
 import Error from "./Error"
 import getWord from "../api"
 
-export default function Main() {
+export default function Main(props) {
     const [keyWord, setKeyWord] = useState("")
     const [formData, setFormData] = useState({search : "keyboard"})
     const [wordDetails, setWordDetails] = useState([])
@@ -39,19 +39,18 @@ export default function Main() {
 
     },[formData.search])
 
-    console.log(wordDetails)
-
     return (
         <>
             <SearchBar 
                 handleSubmit={handleSubmit} 
                 handleOnChange={handleOnChange} 
                 keyWord={keyWord} 
-                status={status}  
+                status={status}
+                theme={props.theme}  
             />
 
             { 
-                !error ? <Content status={status} wordDetails={wordDetails} /> : 
+                !error ? <Content status={status} wordDetails={wordDetails} theme={props.theme} /> : 
                 <Error {...error} />
                 
             }

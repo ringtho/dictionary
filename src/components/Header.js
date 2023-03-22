@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import appLogo from "../assets/images/logo.svg"
 import moonIcon from "../assets/images/icon-moon.svg"
 
 
-export default function Header() {
-    const colorTheme = JSON.parse(localStorage.getItem("darkMode")) || false
-    const fontTheme = localStorage.getItem("font") || ""
-    const [theme, setTheme] = useState({
-        font: fontTheme, 
-        darkMode: colorTheme
-    })
+export default function Header(props) {
+
+    const {theme, setTheme} = props
 
     function handleOnChange(e) {
         const {name, value, type, checked} = e.target
@@ -17,39 +13,17 @@ export default function Header() {
             {   ...prev, 
                 [name]: type === "checkbox" ? checked : value
             }
-            
         ))
-        
     }
 
     useEffect(() => {
         localStorage.setItem("darkMode", theme.darkMode)
         localStorage.setItem("font", theme.font)
-        if (theme.darkMode){
-            document.body.className="dark-theme"
-            document.querySelector("#select").classList.add("dark-theme")
-            document.querySelector("#search-bar").classList.add("dark-search-bar")
-            document.querySelector("#source-link").classList.add("dark-source-link")
-            document.querySelector(".moon-icon").classList.add("dark-moon-icon")
-        } else {
-            document.body.className= "light-theme"
-            document.querySelector("#select").classList.remove("dark-theme")
-            document.querySelector("#search-bar").classList.remove("dark-search-bar")
-            document.querySelector("#source-link").classList.remove("dark-source-link")
-            document.querySelector(".moon-icon").classList.remove("dark-moon-icon")
-        }
+        theme.darkMode 
+        ? document.body.className="dark-theme" 
+        : document.body.className= "light-theme"
 
         document.body.style.fontFamily = theme.font
-
-        return ()=>{
-
-            document.body.className= "light-theme"
-            document.querySelector("#select").classList.remove("dark-theme")
-            document.querySelector("#search-bar").classList.remove("dark-search-bar")
-            document.querySelector("#source-link").classList.remove("dark-source-link")
-            document.querySelector(".moon-icon").classList.remove("dark-moon-icon")
-
-        }
 
     }, [theme])
 
@@ -58,7 +32,7 @@ export default function Header() {
         <img src={appLogo} alt="logo" className="logo" />
         <div className="app-font-slider">
             <div className="select-div">
-                <select id="select" value={theme.font} 
+                <select id="select" className={theme.darkMode ? "dark-theme" : ""} value={theme.font} 
                     name="font" 
                     onChange={handleOnChange}
                 >
@@ -87,7 +61,9 @@ export default function Header() {
                 />
                 <span className="slider round"></span>
             </label>
-          <img src={moonIcon} alt="moon-icon" className="moon-icon" />
+          <img src={moonIcon} alt="moon-icon" 
+          className={`moon-icon ${theme.darkMode ? "dark-moon-icon" : ""}`} 
+          />
         </div>
       </header>
     )
