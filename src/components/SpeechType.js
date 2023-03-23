@@ -2,7 +2,7 @@ import React from "react"
 
 
 export default function SpeechType(props){
-    const {definitions, synonyms, partOfSpeech} = props
+    const {definitions, synonyms, partOfSpeech, theme} = props
 
     const defintionEls = definitions.map(
         (definition, idx) => {
@@ -19,7 +19,7 @@ export default function SpeechType(props){
 
     return (
         <div className="noun-container">
-            <h4 className="noun">{partOfSpeech}</h4>
+            <h4 className={`noun ${theme.darkMode ? "noun-dark" : ""}`}>{partOfSpeech}</h4>
             <p className="meaning">Meaning</p>
             <ul className="list">
             {defintionEls}
