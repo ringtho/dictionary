@@ -24,6 +24,7 @@ p,h1,h2,h3,h4 {
 
 .app-header{
     display: flex;
+    user-select: none;
 }
 
 .logo {
