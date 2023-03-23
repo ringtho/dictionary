@@ -50,7 +50,11 @@ export default function Main(props) {
             />
 
             { 
-                !error ? <Content status={status} wordDetails={wordDetails} theme={props.theme} /> : 
+                !error ? <Content 
+                    status={status} 
+                    wordDetails={wordDetails} 
+                    theme={props.theme} 
+                /> : 
                 <Error {...error} />
                 
             }

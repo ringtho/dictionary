@@ -19,7 +19,9 @@ export default function SpeechType(props){
 
     return (
         <div className="noun-container">
-            <h4 className={`noun ${theme.darkMode ? "noun-dark" : ""}`}>{partOfSpeech}</h4>
+            <h4 className={`noun ${theme.darkMode ? "noun-dark" : ""}`}>
+                {partOfSpeech}
+            </h4>
             <p className="meaning">Meaning</p>
             <ul className="list">
             {defintionEls}
