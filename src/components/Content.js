@@ -1,5 +1,6 @@
 import React from "react"
 import SpeechType from "./SpeechType"
+import Loading from "./Loading"
 import playIcon from "../assets/images/icon-play.svg"
 import playIconHover from "../assets/images/icon-play-hover.svg"
 import newWindow from "../assets/images/icon-new-window.svg"
@@ -28,7 +29,7 @@ export default function Content(props){
     ? audioArr[0].audio : ''
 
     if (status === "submitting"){
-        return <h2>Loading...</h2>
+        return <Loading />
     }
 
     return (

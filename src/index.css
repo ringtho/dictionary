@@ -164,10 +164,10 @@ option:checked{
     caret-color: #A445ED;
 }
 
-.search-bar:user-invalid {
+/* .search-bar:user-invalid {
   outline: none;
   border: 1px solid #FF5252;
-}
+} */
 
 .search-icon {
     height: 16px;
@@ -239,10 +239,6 @@ option:checked{
     flex: 1 1 auto;
 }
 
-.noun-dark::after {
-  background: #3A3A3A;
-}
-
 .meaning {
     color: #757575;
     margin-bottom: 16px;
@@ -307,10 +303,6 @@ option:checked{
     padding-top: 24px;
 }
 
-.source-container-dark {
-  border-top: 1px solid #3A3A3A;
-}
-
 .source, .source-link {
     font-size: 14px;
 }
@@ -339,10 +331,6 @@ option:checked{
     border: none;
 }
 
-.hr-dark {
-  background-color: #3A3A3A;
-}
-
 .sans-serif {
   font-family: 'Inter', sans-serif;
 }
@@ -355,7 +343,12 @@ option:checked{
   font-family: 'Inconsolata', monospace;
 }
 
-
+.loader-container {
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* dark theme */
 
@@ -375,6 +368,18 @@ option:checked{
 
 .dark-moon-icon {
   filter: invert(58%) sepia(96%) saturate(5889%) hue-rotate(255deg) brightness(94%) contrast(97%)
+}
+
+.hr-dark {
+  background-color: #3A3A3A;
+}
+
+.source-container-dark {
+  border-top: 1px solid #3A3A3A;
+}
+
+.noun-dark::after {
+  background: #3A3A3A;
 }
 
 /* Error */
