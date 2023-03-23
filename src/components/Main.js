@@ -6,7 +6,7 @@ import getWord from "../api"
 
 export default function Main(props) {
     const [keyWord, setKeyWord] = useState("")
-    const [formData, setFormData] = useState({search : ""})
+    const [formData, setFormData] = useState({search: "keyboard"})
     const [wordDetails, setWordDetails] = useState([])
     const [status, setStatus] = useState("idle")
     const [error, setError] = useState(null)
@@ -23,7 +23,7 @@ export default function Main(props) {
     useEffect(() => {
         setStatus("submitting")
         setError(null)
-        setWordDetails({search : ""})
+        setWordDetails([])
 
         async function getData(){
             try {
@@ -37,7 +37,7 @@ export default function Main(props) {
         } 
         getData()
 
-    },[formData.search])
+    },[formData?.search])
 
     return (
         <>
@@ -50,14 +50,14 @@ export default function Main(props) {
             />
 
             { 
-                !error ? <Content 
+                formData && !error ? <Content 
                     status={status} 
                     wordDetails={wordDetails} 
-                    theme={props.theme} 
-                /> : 
+                    theme={props.theme}
+                />  :
                 <Error {...error} />
-                
             }
+
         </>
     )
 }
