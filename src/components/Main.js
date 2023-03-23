@@ -6,7 +6,7 @@ import getWord from "../api"
 
 export default function Main(props) {
     const [keyWord, setKeyWord] = useState("")
-    const [formData, setFormData] = useState({search : "keyboard"})
+    const [formData, setFormData] = useState({search : ""})
     const [wordDetails, setWordDetails] = useState([])
     const [status, setStatus] = useState("idle")
     const [error, setError] = useState(null)
