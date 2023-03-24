@@ -8,22 +8,21 @@ import newWindow from "../assets/images/icon-new-window.svg"
 import { useSelector } from "react-redux"
 
 
-export default function Content(props){
-    const {wordDetails } = props
-    const { theme, status } = useSelector(state => state)
+export default function Content(){
+    const { theme, status, wordDetails } = useSelector(state => state)
 
     function play() {
         let audio = document.getElementById("audio");
         audio.play();
     }
 
-    const partOfSpeech = wordDetails.meanings?.map((speech, idx) => {
+    const partOfSpeech = wordDetails?.meanings.map((speech, idx) => {
         return speech.partOfSpeech && <SpeechType 
             key={idx} {...speech} 
             />
     })
 
-    const audioArr = wordDetails.phonetics?.filter((audio)=>{
+    const audioArr = wordDetails?.phonetics.filter((audio)=>{
         return audio.audio !== ''
     }) || null
 
@@ -39,8 +38,8 @@ export default function Content(props){
         <section>
             <div className="keyword-container">
                 <div className="word">
-                    <h1>{wordDetails.word}</h1>
-                    <p>{wordDetails.phonetic}</p>
+                    <h1>{wordDetails?.word}</h1>
+                    <p>{wordDetails?.phonetic}</p>
                 </div>
                 <div className="img-container">
                     <img src={playIcon} alt="play-icon" 
@@ -64,9 +63,9 @@ export default function Content(props){
                     source-link ${theme.darkMode? "dark-source-link" : ""}`} 
                     target="_blank"
                     rel="noreferrer" 
-                    href={`https://en.wiktionary.org/wiki/${wordDetails.word}`}
-                    >https://en.wiktionary.org/wiki/{wordDetails.word}</a>
-                <a href={`https://en.wiktionary.org/wiki/${wordDetails.word}`} 
+                    href={`https://en.wiktionary.org/wiki/${wordDetails?.word}`}
+                    >https://en.wiktionary.org/wiki/{wordDetails?.word}</a>
+                <a href={`https://en.wiktionary.org/wiki/${wordDetails?.word}`} 
                     target="_blank" rel="noreferrer">
                     <img src={newWindow} alt="" className="new-window" />
                 </a>

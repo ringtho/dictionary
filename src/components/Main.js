@@ -7,13 +7,15 @@ import getWord from "../api"
 
 import { errorAction} from "../redux/errorReducer"
 import {setIdleStatus, setSubmittingStatus} from "../redux/statusReducer"
+import { addWordDetails } from "../redux/wordDetailsReducer"
 
 export default function Main() {
     const [keyWord, setKeyWord] = useState("")
     const [formData, setFormData] = useState({search: "keyboard"})
-    const [wordDetails, setWordDetails] = useState([])
 
-    const { error } = useSelector(state => state)
+    const { error, wordDetails } = useSelector(state => state)
+
+    console.log(wordDetails)
     const dispatch = useDispatch()
     
     function handleOnChange(e){
@@ -28,12 +30,12 @@ export default function Main() {
     useEffect(() => {
         dispatch(setSubmittingStatus())
         dispatch(errorAction(null))
-        setWordDetails([])
+        dispatch(addWordDetails(null))
 
         async function getData(){
             try {
                 const data = await getWord(formData.search)
-                setWordDetails(data[0])
+                dispatch(addWordDetails(data[0]))
             } catch(err){
                 dispatch(errorAction(err))
             } finally {
@@ -53,10 +55,7 @@ export default function Main() {
             />
 
             { 
-                formData && !error ? <Content 
-                    wordDetails={wordDetails} 
-                />  :
-                <Error />
+                formData && !error ? <Content />:<Error />
             }
 
         </>
