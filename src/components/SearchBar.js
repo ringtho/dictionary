@@ -4,8 +4,8 @@ import { useSelector } from "react-redux"
 
 
 export default function SearchBar(props){
-    const {handleSubmit, handleOnChange, keyWord, status} = props
-    const {theme} = useSelector(state => state)
+    const {handleSubmit, handleOnChange, keyWord} = props
+    const {theme, status} = useSelector(state => state)
 
     return (
         <section className="search-bar-container">

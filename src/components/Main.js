@@ -6,18 +6,16 @@ import Error from "./Error"
 import getWord from "../api"
 
 import { errorAction} from "../redux/errorReducer"
+import {setIdleStatus, setSubmittingStatus} from "../redux/statusReducer"
 
-export default function Main(props) {
+export default function Main() {
     const [keyWord, setKeyWord] = useState("")
     const [formData, setFormData] = useState({search: "keyboard"})
     const [wordDetails, setWordDetails] = useState([])
-    const [status, setStatus] = useState("idle")
 
-    const data = useSelector(state => state)
+    const { error } = useSelector(state => state)
     const dispatch = useDispatch()
     
-    const {error} = data
-
     function handleOnChange(e){
         setKeyWord(e.target.value)
     }
@@ -28,7 +26,7 @@ export default function Main(props) {
     }
 
     useEffect(() => {
-        setStatus("submitting")
+        dispatch(setSubmittingStatus())
         dispatch(errorAction(null))
         setWordDetails([])
 
@@ -39,7 +37,7 @@ export default function Main(props) {
             } catch(err){
                 dispatch(errorAction(err))
             } finally {
-                setStatus("idle")
+                dispatch(setIdleStatus())
             }
         } 
         getData()
@@ -52,15 +50,13 @@ export default function Main(props) {
                 handleSubmit={handleSubmit} 
                 handleOnChange={handleOnChange} 
                 keyWord={keyWord} 
-                status={status} 
             />
 
             { 
                 formData && !error ? <Content 
-                    status={status} 
                     wordDetails={wordDetails} 
                 />  :
-                <Error {...error} />
+                <Error />
             }
 
         </>

@@ -9,8 +9,8 @@ import { useSelector } from "react-redux"
 
 
 export default function Content(props){
-    const {wordDetails, status } = props
-    const { theme } = useSelector(state => state)
+    const {wordDetails } = props
+    const { theme, status } = useSelector(state => state)
 
     function play() {
         let audio = document.getElementById("audio");
