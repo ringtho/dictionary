@@ -52,7 +52,7 @@ export default function Header() {
                     >Mono</option>
                 </select>
             </div>
-            <hr className="hr"></hr>
+            <hr className={`hr ${theme.darkMode? "hr-dark" : ""}`}></hr>
             <label className="switch">
                 <input 
                     type="checkbox" 
