@@ -1,19 +1,20 @@
 import React, { useEffect } from "react"
 import appLogo from "../assets/images/logo.svg"
 import moonIcon from "../assets/images/icon-moon.svg"
+import { useSelector, useDispatch } from "react-redux"
+import { changeFontFamily, changeDarkMode } from "../redux/themeReducer"
 
 
-export default function Header(props) {
+export default function Header() {
 
-    const {theme, setTheme} = props
+    const theme = useSelector(state => state.theme)
+    const dispatch = useDispatch()
 
     function handleOnChange(e) {
-        const {name, value, type, checked} = e.target
-        setTheme(prev => (
-            {   ...prev, 
-                [name]: type === "checkbox" ? checked : value
-            }
-        ))
+        const {value, type, checked} = e.target
+        type === "checkbox" 
+        ? dispatch(changeDarkMode(checked)) 
+        : dispatch(changeFontFamily(value))
     }
 
     useEffect(() => {
