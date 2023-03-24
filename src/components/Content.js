@@ -5,9 +5,12 @@ import playIcon from "../assets/images/icon-play.svg"
 import playIconHover from "../assets/images/icon-play-hover.svg"
 import newWindow from "../assets/images/icon-new-window.svg"
 
+import { useSelector } from "react-redux"
+
 
 export default function Content(props){
-    const {wordDetails, status, theme } = props
+    const {wordDetails, status } = props
+    const { theme } = useSelector(state => state)
 
     function play() {
         let audio = document.getElementById("audio");
@@ -17,7 +20,6 @@ export default function Content(props){
     const partOfSpeech = wordDetails.meanings?.map((speech, idx) => {
         return speech.partOfSpeech && <SpeechType 
             key={idx} {...speech} 
-            theme={theme}
             />
     })
 

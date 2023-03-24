@@ -1,8 +1,11 @@
 import React from "react"
+import { useSelector } from "react-redux"
 
 
 export default function SpeechType(props){
-    const {definitions, synonyms, partOfSpeech, theme} = props
+    const {definitions, synonyms, partOfSpeech} = props
+
+    const { theme } = useSelector(state => state)
 
     const defintionEls = definitions.map(
         (definition, idx) => {

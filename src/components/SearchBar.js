@@ -1,9 +1,11 @@
 import React from "react"
 import searchIcon from "../assets/images/icon-search.svg"
+import { useSelector } from "react-redux"
 
 
 export default function SearchBar(props){
-    const {handleSubmit, handleOnChange, keyWord, status, theme} = props
+    const {handleSubmit, handleOnChange, keyWord, status} = props
+    const {theme} = useSelector(state => state)
 
     return (
         <section className="search-bar-container">

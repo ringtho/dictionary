@@ -45,15 +45,13 @@ export default function Main(props) {
                 handleSubmit={handleSubmit} 
                 handleOnChange={handleOnChange} 
                 keyWord={keyWord} 
-                status={status}
-                theme={props.theme}  
+                status={status} 
             />
 
             { 
                 formData && !error ? <Content 
                     status={status} 
                     wordDetails={wordDetails} 
-                    theme={props.theme}
                 />  :
                 <Error {...error} />
             }
