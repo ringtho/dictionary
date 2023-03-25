@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import SearchBar from "./SearchBar"
 import Content from "./Content"
@@ -8,14 +8,14 @@ import { errorAction} from "../redux/errorReducer"
 import {setIdleStatus, setSubmittingStatus} from "../redux/statusReducer"
 import { addWordDetails } from "../redux/wordDetailsReducer"
 import { addFormData } from "../redux/formDataReducer"
+import { addKeyWord } from "../redux/keyWordReducer"
 
 export default function Main() {
-    const [keyWord, setKeyWord] = useState("")
-    const { error, formData } = useSelector(state => state)
+    const { error, formData, keyWord } = useSelector(state => state)
     const dispatch = useDispatch()
     
     function handleOnChange(e){
-        setKeyWord(e.target.value)
+        dispatch(addKeyWord(e.target.value))
     }
 
     function handleSubmit(e){

@@ -4,6 +4,7 @@ import errorReducer from "./errorReducer"
 import statusReducer from "./statusReducer"
 import wordDetailsReducer from "./wordDetailsReducer"
 import formDataReducer from "./formDataReducer"
+import keyWordReducer from "./keyWordReducer"
 
 
 const rootReducer = combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     error: errorReducer,
     status: statusReducer,
     wordDetails: wordDetailsReducer,
-    formData: formDataReducer
+    formData: formDataReducer,
+    keyWord: keyWordReducer
 })
 
 const store = createStore(rootReducer)
