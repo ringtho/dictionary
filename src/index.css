@@ -165,17 +165,21 @@ option:checked{
     caret-color: #A445ED;
 }
 
-/* .search-bar:user-invalid {
-  outline: none;
-  border: 1px solid #FF5252;
-} */
-
 .search-icon {
     height: 16px;
     width: 16px;
     position: absolute;
     top: 16px;
     right: 24px;
+}
+
+.search-icon:hover{
+  cursor: pointer;
+}
+
+.submit-btn {
+  border: none;
+  background-color: inherit;
 }
 
 .search-bar:disabled {

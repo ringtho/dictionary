@@ -23,7 +23,9 @@ export default function SearchBar(props){
                     e.target.setCustomValidity("Whoops, can't be empty...") }}
                 onInput={F => F.target.setCustomValidity('')}
                 />
-            <img src={searchIcon} alt="search-icon" className="search-icon" />
+            <button className="submit-btn" type="submit">
+                <img src={searchIcon} alt="search-icon" className="search-icon" />
+            </button>
             </form>
         </section>
     )
