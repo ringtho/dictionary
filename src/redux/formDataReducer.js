@@ -10,7 +10,7 @@ export function addFormData(data){
 }
 
 const initialState = {
-    search: "keyboard"
+    search: ""
 }
 
 function formDataReducer(state=initialState, action){

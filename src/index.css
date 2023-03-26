@@ -364,6 +364,21 @@ option:checked{
     -webkit-tap-highlight-color: transparent;
 }
 
+.landing-page-container {
+  text-align: center;
+}
+
+.landing-page-container p {
+  line-height: 24px;
+  font-size: 18px;
+  color: #757575;
+}
+
+.landing-page-container h2 {
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
 /* dark theme */
 
 .dark-theme {

@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar"
 import Content from "./Content"
 import Error from "./Error"
 import getWord from "../api"
+import LandingPage from "./LandingPage"
 import { errorAction} from "../redux/errorReducer"
 import {setIdleStatus, setSubmittingStatus} from "../redux/statusReducer"
 import { addWordDetails } from "../redux/wordDetailsReducer"
@@ -49,7 +50,9 @@ export default function Main() {
             />
 
             { 
-                formData && !error ? <Content />:<Error />
+                formData.search && !error ? <Content />
+                : !formData.search ? <LandingPage /> :
+                <Error />
             }
 
         </>
