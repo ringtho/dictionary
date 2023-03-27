@@ -168,9 +168,6 @@ option:checked{
 .search-icon {
     height: 16px;
     width: 16px;
-    position: absolute;
-    top: 16px;
-    right: 24px;
 }
 
 .search-icon:hover{
@@ -180,6 +177,10 @@ option:checked{
 .submit-btn {
   border: none;
   background-color: inherit;
+  position: absolute;
+  top: 16px;
+  right: 22px;
+  cursor: pointer;
 }
 
 .submit-btn::selection {
@@ -365,7 +366,9 @@ option:checked{
 }
 
 .landing-page-container {
+  border: 1px solid #A445ED;
   text-align: center;
+  padding-block: 18px;
 }
 
 .landing-page-container p {
@@ -377,6 +380,10 @@ option:checked{
 .landing-page-container h2 {
   margin-bottom: 16px;
   font-size: 20px;
+}
+
+.landing-page-container span {
+  color: #A445ED;
 }
 
 /* dark theme */

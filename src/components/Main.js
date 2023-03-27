@@ -37,10 +37,11 @@ export default function Main() {
             } finally {
                 dispatch(setIdleStatus())
             }
-        } 
+        }
         getData()
+        
 
-    },[formData?.search, dispatch])
+    },[formData.search, dispatch])
 
     return (
         <>
