@@ -8,20 +8,15 @@ import LandingPage from "./LandingPage"
 import { errorAction} from "../redux/errorReducer"
 import {setIdleStatus, setSubmittingStatus} from "../redux/statusReducer"
 import { addWordDetails } from "../redux/wordDetailsReducer"
-import { addFormData } from "../redux/formDataReducer"
 import { addKeyWord } from "../redux/keyWordReducer"
 
 export default function Main() {
-    const { error, formData, keyWord } = useSelector(state => state)
+    const { error, formData } = useSelector(state => state)
     const dispatch = useDispatch()
+
     
     function handleOnChange(e){
         dispatch(addKeyWord(e.target.value))
-    }
-
-    function handleSubmit(e){
-        e.preventDefault()
-        dispatch(addFormData(keyWord))
     }
 
     useEffect(() => {
@@ -46,7 +41,6 @@ export default function Main() {
     return (
         <>
             <SearchBar 
-                handleSubmit={handleSubmit} 
                 handleOnChange={handleOnChange} 
             />
 

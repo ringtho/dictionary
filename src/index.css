@@ -165,6 +165,15 @@ option:checked{
     caret-color: #A445ED;
 }
 
+.required-error {
+  color: #FF5252;
+  margin-top: 8px;
+}
+
+.searchbar-error {
+  border: 1px solid #FF5252;
+}
+
 .search-icon {
     height: 16px;
     width: 16px;
@@ -443,7 +452,6 @@ option:checked{
   color: #757575;
 
 }
-
 
 @media (min-width: 768px){
   .app-container {
