@@ -172,6 +172,7 @@ option:checked{
 
 .searchbar-error {
   border: 1px solid #FF5252;
+  font-size: 20px;
 }
 
 .search-icon {

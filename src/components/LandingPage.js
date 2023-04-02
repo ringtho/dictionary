@@ -1,7 +1,21 @@
-import React from "react"
+import React, { useEffect } from "react"
+import { getRandomWord } from "../api"
 
 
 export default function LandingPage(){
+
+    useEffect(()=>{
+
+        async function getWord(){
+            const data = await getRandomWord()
+            console.log(data)
+        }
+
+        getWord()
+        
+    }, [])
+
+
     return (
         <div className="landing-page-container">
             <h2>Welcome to the dictionary App!</h2>
