@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import SearchBar from "./SearchBar"
+import LandingPage from "./LandingPage"
 import Content from "./Content"
 import Error from "./Error"
 import getWord from "../api"
@@ -45,9 +46,13 @@ export default function Main() {
             />
 
             { 
+<<<<<<< HEAD
                 formData.search && !error ? <Content />
                 : !formData.search ? <LandingPage /> :
                 <Error />
+=======
+                !error ? formData ? <Content />: <LandingPage /> : <Error />
+>>>>>>> ea4635b (Updated Readme file)
             }
 
         </>
