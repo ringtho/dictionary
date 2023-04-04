@@ -1,23 +1,17 @@
-import React from "react"
+import React, { useState } from "react"
 import searchIcon from "../assets/images/icon-search.svg"
 import { addFormData } from "../redux/formDataReducer"
 import { useDispatch, useSelector } from "react-redux"
-import { useForm } from "react-hook-form"
-
 
 export default function SearchBar(props){
     const { handleOnChange} = props
     const {theme, status, keyWord} = useSelector(state => state)
     const dispatch = useDispatch()
-    const { register, trigger, formState: {errors}} = useForm()
+    const [errors, setErrors] = useState(false)
 
-
-    async function handleSubmit(e){
+    function handleSubmit(e){
         e.preventDefault()
-        const isValid = await trigger()
-        if(isValid){
-            dispatch(addFormData(keyWord))
-        } 
+        dispatch(addFormData(keyWord))
     }
 
     return (
@@ -26,20 +20,30 @@ export default function SearchBar(props){
             <input 
                 type="text" 
                 id="search-bar" 
-                className={`search-bar ${errors.search && "searchbar-error"} 
+                className={`search-bar 
                 ${theme.darkMode ? "dark-search-bar": ""}`} 
                 placeholder="Search for any word..."
                 name="keyWord"
-                {...register("search", {
-                    required: true
-                })}
+                style={errors ? {
+                    border: '1px solid red',
+                  }
+                : {}
+                }
                 value={keyWord}
-                onChange={handleOnChange}
+                onChange={(e) => {
+                    setErrors(false)
+                    handleOnChange(e)
+                }}
                 disabled={status==="submitting"}
-                />
-            {errors.search && (
+                required
+                onInvalid={(e) => {
+                    e.preventDefault()
+                    setErrors(true)
+                }}
+            />
+            {errors && (
                 <p className="required-error">
-                    {errors.search.type === "required" && "Whoops, can't be empty..."}
+                Whoops, can't be empty...
                 </p>
             )}
             <button className="submit-btn" type="submit">
