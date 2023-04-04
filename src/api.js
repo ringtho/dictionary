@@ -16,11 +16,11 @@ export default async function getWord(searchWord){
 }
 
 
-export async function getRandomWord(){
-    const API_KEY = `orzwp4uht56ctsjt7y28njq528njqjb5z0dlat7abt0v2lek8`
-    const url = `http://api.wordnik.com/v4/words.json/randomWord?api_key=${API_KEY}`
-    console.log(url)
-    const res = await fetch(url)
-    const data = await res.json()
-    return data
-}
+// export async function getRandomWord(){
+//     const API_KEY = `orzwp4uht56ctsjt7y28njq528njqjb5z0dlat7abt0v2lek8`
+//     const url = `http://api.wordnik.com/v4/words.json/randomWord?api_key=${API_KEY}`
+//     console.log(url)
+//     const res = await fetch(url)
+//     const data = await res.json()
+//     return data
+// }

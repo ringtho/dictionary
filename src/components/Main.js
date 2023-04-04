@@ -20,6 +20,7 @@ export default function Main() {
     }
 
     useEffect(() => {
+        formData.search && 
         dispatch(setSubmittingStatus())
         dispatch(errorAction(null))
         dispatch(addWordDetails(null))
@@ -33,7 +34,7 @@ export default function Main() {
                 dispatch(setIdleStatus())
             }
         }
-        getData()
+        formData.search && getData()
         
 
     },[formData.search, dispatch])
@@ -45,12 +46,9 @@ export default function Main() {
             />
 
             { 
-
                 formData.search && !error ? <Content />
                 : !formData.search ? <LandingPage /> :
                 <Error />
-
-                // !error ? formData ? <Content />: <LandingPage /> : <Error />
             }
 
         </>

@@ -4,7 +4,6 @@ import { addFormData } from "../redux/formDataReducer"
 import { addKeyWord } from "../redux/keyWordReducer"
 
 
-
 export default function SpeechType(props){
     const {definitions, synonyms, partOfSpeech} = props
 
@@ -27,12 +26,15 @@ export default function SpeechType(props){
     function handleSynonymClick(word){
         dispatch(addKeyWord(word))
         dispatch(addFormData(word))
-        
     }
 
     const synonymsEls = synonyms.map((synonym, idx) =>(
-        <span className="synonym-span" key={idx}
-        onClick={() => handleSynonymClick(synonym)}>{ (idx ? ', ' : '') + synonym }</span>
+        <span 
+            className="synonym-span" 
+            key={idx}
+            onClick={() => handleSynonymClick(synonym)}>
+            { (idx ? ', ' : '') + synonym }
+        </span>
         )
     )
 
@@ -49,7 +51,7 @@ export default function SpeechType(props){
                 synonyms.length > 0 && <div className="synonym-container">
                     <p className="synonym">Synonyms</p>
                     <p className="synonym-description">
-                        {synonymsEls}
+                    {synonymsEls}
                     </p>
                 </div>
             }
