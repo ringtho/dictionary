@@ -33,7 +33,10 @@ export default function Header() {
         <img src={appLogo} alt="logo" className="logo" />
         <div className="app-font-slider">
             <div className="select-div">
-                <select id="select" className={theme.darkMode ? "dark-theme" : ""} value={theme.font} 
+                <select 
+                    id="select" 
+                    className={theme.darkMode ? "dark-theme" : ""} 
+                    value={theme.font} 
                     name="font" 
                     onChange={handleOnChange}
                 >

@@ -25,7 +25,7 @@ export default function SearchBar(props){
                 placeholder="Search for any word..."
                 name="keyWord"
                 style={errors ? {
-                    border: '1px solid red',
+                    border: '1px solid #FF5252',
                   }
                 : {}
                 }
