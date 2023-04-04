@@ -193,7 +193,7 @@ option:checked{
   cursor: pointer;
 }
 
-.submit-btn::selection {
+.submit-btn:focus {
   outline: none;
   background-color: transparent;
 }
