@@ -1,19 +1,20 @@
 
-const ADD_KEYWORD = "ADD_KEYWORD"
+const ADD_KEYWORD = 'ADD_KEYWORD'
 
-export function addKeyWord(word){
-    return {
-        type: ADD_KEYWORD,
-        payload: word
-    }
+export const addKeyWord = (word) => {
+  return {
+    type: ADD_KEYWORD,
+    payload: word
+  }
 }
 
-
-export default function keyWordReducer(keyWord="", action){
-    switch(action.type){
-        case ADD_KEYWORD:
-            return action.payload
-        default:
-            return keyWord
-    }
+const keyWordReducer = (keyWord = '', action) => {
+  switch (action.type) {
+    case ADD_KEYWORD:
+      return action.payload
+    default:
+      return keyWord
+  }
 }
+
+export default keyWordReducer

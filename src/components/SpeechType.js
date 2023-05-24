@@ -1,46 +1,44 @@
-import React from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { addFormData } from "../redux/formDataReducer"
-import { addKeyWord } from "../redux/keyWordReducer"
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { addFormData } from '../redux/formDataReducer'
+import { addKeyWord } from '../redux/keyWordReducer'
+import PropTypes from 'prop-types'
 
+const SpeechType = (props) => {
+  const { definitions, synonyms, partOfSpeech } = props
+  const { theme } = useSelector(state => state)
+  const dispatch = useDispatch()
 
-export default function SpeechType(props){
-    const {definitions, synonyms, partOfSpeech} = props
-
-    const { theme } = useSelector(state => state)
-    const dispatch = useDispatch()
-
-    const defintionEls = definitions.map(
-        (definition, idx) => {
-        return (
+  const defintionEls = definitions.map(
+    (definition, idx) => {
+      return (
             <React.Fragment key={idx}>
             <li>{definition.definition}</li>
             {
-                definition.example && 
-                <p className="word-example">"{definition.example}"</p>
+                definition.example &&
+                <p className="word-example">{`"${definition.example}"`}</p>
             }
             </React.Fragment>
-        )
+      )
     })
 
-    function handleSynonymClick(word){
-        dispatch(addKeyWord(word))
-        dispatch(addFormData(word))
-    }
+  function handleSynonymClick (word) {
+    dispatch(addKeyWord(word))
+    dispatch(addFormData(word))
+  }
 
-    const synonymsEls = synonyms.map((synonym, idx) =>(
-        <span 
-            className="synonym-span" 
+  const synonymsEls = synonyms.map((synonym, idx) => (
+        <span
+            className="synonym-span"
             key={idx}
             onClick={() => handleSynonymClick(synonym)}>
             { (idx ? ', ' : '') + synonym }
         </span>
-        )
-    )
+  ))
 
-    return (
+  return (
         <div className="noun-container">
-            <h4 className={`noun ${theme.darkMode ? "noun-dark" : ""}`}>
+            <h4 className={`noun ${theme.darkMode ? 'noun-dark' : ''}`}>
                 {partOfSpeech}
             </h4>
             <p className="meaning">Meaning</p>
@@ -56,5 +54,13 @@ export default function SpeechType(props){
                 </div>
             }
         </div>
-    )
+  )
+}
+
+export default SpeechType
+
+SpeechType.propTypes = {
+  definitions: PropTypes.object,
+  synonyms: PropTypes.object,
+  partOfSpeech: PropTypes.string
 }
